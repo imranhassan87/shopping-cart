@@ -26,7 +26,7 @@ jobs:
     - uses: actions/setup-node@v2-beta
       with:
         node-version: 10
-    - uses: borales/actions-yarn@v2.0.0
+    - uses: borales/actions-yarn@v1.22.4
       with:
         cmd: install
     # Runs a set of commands using the runners shell
