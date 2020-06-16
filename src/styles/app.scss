@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&display=swap");
+@import "./components/header.scss";
+@import "./components/banner.scss";
+@import "./components/cases.scss";
+@import "./components/item.scss";
+
+$black: #000000;
+$white: #ffffff;
+
+body,
+html {
+    //   visibility: hidden;
+    user-select: none;
+    background: $white;
+    overscroll-behavior: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 1336px;
+    height: 100%;
+    min-width: 1336px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 0 16px;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.v-center {
+    align-items: center;
+}
+//intro overlay
+
+.intro-overlay {
+    .top {
+        height: 50vh;
+        position: absolute;
+        width: 100%;
+        z-index: 8;
+        .overlay-top {
+            height: 100%;
+            position: absolute;
+            width: 33.33vw;
+            background: #000;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            &:nth-child(2) {
+                left: 33.33%;
+            }
+            &:nth-child(3) {
+                left: 66.66%;
+            }
+        }
+    }
+    .bottom {
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        z-index: 7;
+        .overlay-bottom {
+            height: 100%;
+            position: absolute;
+            width: 33.33vw;
+            background: #000;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            &:nth-child(2) {
+                left: 33.33%;
+            }
+            &:nth-child(3) {
+                left: 66.66%;
+            }
+        }
+    }
+}

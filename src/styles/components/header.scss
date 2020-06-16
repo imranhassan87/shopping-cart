@@ -1,0 +1,27 @@
+.header {
+    height: 70px;
+    width: 100%;
+    .logo {
+        img {
+            width: 35%;
+            height: 35%;
+        }
+        h2 {
+            margin-top: 45px;
+            text-align: center;
+            font-weight: 800;
+        }
+    }
+    .nav-routes {
+        ul {
+            margin-right: 19px;
+            a {
+                text-decoration: none;
+                color: #000;
+                font-size: 20px;
+                list-style: none;
+                margin-left: 10px;
+            }
+        }
+    }
+}
