@@ -4,7 +4,9 @@ import gsap from 'gsap'
 
 const Header = () => {
     useEffect(() => {
+        gsap.to("body", 0, { css: { visibility: "visible" } });
         const tl = gsap.timeline()
+
         tl.from('.header', 1.8, {
             y: -200,
             ease: 'power4.out',
@@ -12,7 +14,7 @@ const Header = () => {
                 amount: 0.3
             }
         })
-        tl.from('.link', 1.2, {
+        tl.from('.link', 1.4, {
             x: 280,
             ease: 'Power3.easeOut',
             stagger: {
