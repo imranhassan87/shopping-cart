@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import gsap, { Power3, Power4, Back } from 'gsap'
+import gsap, { Power4, Back } from 'gsap'
 
 const Header = () => {
     useEffect(() => {
