@@ -1,9 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 
 const initialState = {
-    currentTheme: 'light',
     cart: [],
-    sum: 0,
     items: [
         { id: 1, name: 'Shirt1', image: 'img1', price: 400 },
         { id: 2, name: 'Shirt2', image: 'img2', price: 400 },
@@ -21,21 +19,21 @@ export const GlobalContext = createContext(initialState)
 
 const globalReducer = (state, action) => {
     switch (action.type) {
-        case 'TOGGLE_THEME':
-            return {
-                ...state,
-                currentTheme: action.theme
-            }
+
         case 'ADD_TO_CART':
+
             return {
                 ...state,
-                cart: [...state.cart, action.payload]
+                cart: [...state.cart, action.payload],
             }
         case 'REMOVE_FROM_CART':
+            const index = state.cart.findIndex(item => item.id === action.payload);
             return {
                 ...state,
-                cart: state.cart.filter(item => item.id !== action.payload)
+                cart: state.cart.filter((_, i) => i !== index)
             }
+        case "CLEAR_CART":
+            return state
         default:
             return state
     }
@@ -45,19 +43,6 @@ const globalReducer = (state, action) => {
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(globalReducer, initialState)
 
-    const toggleTheme = () => {
-        if (state.currentTheme === "light") {
-            dispatch({
-                type: "TOGGLE_THEME",
-                theme: 'dark'
-            })
-        } else {
-            dispatch({
-                type: "TOGGLE_THEME",
-                theme: 'light'
-            })
-        }
-    }
     const addToCart = (item) => {
         dispatch({
             type: 'ADD_TO_CART',
@@ -72,13 +57,19 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    const clearCart = () => {
+        dispatch({
+            type: "CLEAR_CART"
+        })
+    }
+
     return <GlobalContext.Provider value={{
-        currentTheme: state.currentTheme,
         cart: state.cart,
         items: state.items,
-        toggleTheme,
+        totalAmount: state.totalAmount,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        clearCart
     }}>
         {children}
     </GlobalContext.Provider>
