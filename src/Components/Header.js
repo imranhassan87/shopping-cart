@@ -1,17 +1,13 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import gsap, { Power4, Back } from 'gsap'
+import gsap, { Power2, Back } from 'gsap'
 
 const Header = () => {
     useEffect(() => {
         gsap.to("body", 0, { css: { visibility: "visible" } });
         const tl = gsap.timeline()
 
-        tl.from('.header', 1.6, {
-            y: -100,
-            ease: Back.out,
-        })
-        tl.from('.link', 0.9, {
+        tl.from('.link', 1.2, {
             x: 300,
             ease: 'Power3.easeOut',
             stagger: {
@@ -24,12 +20,11 @@ const Header = () => {
             ease: Back.easeOut,
             stagger: 0.3
         })
-        tl.from('.card', 0.2, {
+
+        tl.from('.card', 0.3, {
+            autoAlpha: 0,
             opacity: 0,
-            y: 500,
-            ease: Power4.easeOut,
-            delay: 0.2,
-            stagger: 0.3
+            ease: Power2.easeInOut,
         })
     }, [])
     return (
