@@ -9,7 +9,7 @@ const Header = () => {
 
         tl.from('.header', 1.6, {
             y: -100,
-            ease: 'power4.out',
+            ease: Back.out,
         })
         tl.from('.link', 0.9, {
             x: 300,
