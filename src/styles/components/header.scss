@@ -23,6 +23,11 @@
                 list-style: none;
                 margin: 0 15px;
                 font-weight: 700;
+
+                &:hover {
+                    transition: 0.3s;
+                    color: #ccc;
+                }
             }
         }
     }

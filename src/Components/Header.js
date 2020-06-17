@@ -15,7 +15,7 @@ const Header = () => {
             }
         })
         tl.from('.link', 1.4, {
-            x: 280,
+            x: 300,
             ease: 'Power3.easeOut',
             stagger: {
                 amount: 0.3
