@@ -34,6 +34,7 @@ const globalReducer = (state, action) => {
         case 'REMOVE_FROM_CART':
             return {
                 ...state,
+                cart: state.cart.filter(item => item.id !== action.payload)
             }
         default:
             return state
@@ -57,18 +58,27 @@ export const GlobalProvider = ({ children }) => {
             })
         }
     }
-    const addToCart = (id, name, price) => {
+    const addToCart = (item) => {
         dispatch({
             type: 'ADD_TO_CART',
-            payload: { id, name, price }
+            payload: item
         })
     }
+
+    const removeFromCart = (id) => {
+        dispatch({
+            type: 'REMOVE_FROM_CART',
+            payload: id
+        })
+    }
+
     return <GlobalContext.Provider value={{
         currentTheme: state.currentTheme,
         cart: state.cart,
         items: state.items,
         toggleTheme,
-        addToCart
+        addToCart,
+        removeFromCart
     }}>
         {children}
     </GlobalContext.Provider>

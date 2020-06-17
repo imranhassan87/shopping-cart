@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 
 const Item = () => {
-    const { items } = useContext(GlobalContext)
+    const { items, addToCart } = useContext(GlobalContext)
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row' }}>
             {items.map((item) => <div key={item.id} className="card">
@@ -11,7 +11,7 @@ const Item = () => {
                     <h4>{item.name}</h4>
                     <span>Rs. {item.price}</span>
                 </div>
-                <button className="btn"> Add to Cart</button>
+                <button className="btn" onClick={() => addToCart(item)}> Add to Cart</button>
             </div>
             )}
         </div>
