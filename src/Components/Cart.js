@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../Context/GlobalContext'
 
 const Cart = () => {
-    const { cart, removeFromCart } = useContext(GlobalContext)
+    const { cart, removeFromCart, clearCart } = useContext(GlobalContext)
     const amount = cart.map(p => p.price)
     const totalAmount = amount.reduce((amt, item) => (amt += item), 0).toFixed(2)
     return (
@@ -29,6 +29,9 @@ const Cart = () => {
                     </div>
                 </div>
             )}
+            <div className="order">
+                {cart.length !== 0 ? <button className="btn-order" onClick={() => clearCart()}>Order</button> : null}
+            </div>
         </div>
     )
 }

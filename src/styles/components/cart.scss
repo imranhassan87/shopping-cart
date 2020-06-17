@@ -18,6 +18,7 @@
 }
 
 .cart-info {
+    overflow: hidden;
     .row {
         justify-content: space-around;
     }
@@ -43,4 +44,32 @@
         background-color: red;
         color: white;
     }
+}
+.btn-order {
+    margin-top: 30px;
+    border: 1px solid rgb(224, 212, 37);
+    border-radius: 5px;
+    background-color: white;
+    width: 350px;
+    height: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: black;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    transition-duration: 0.3s;
+    &:hover {
+        background-color: rgb(224, 212, 37);
+        color: white;
+    }
+}
+.order {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

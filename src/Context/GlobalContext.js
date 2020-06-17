@@ -33,7 +33,10 @@ const globalReducer = (state, action) => {
                 cart: state.cart.filter((_, i) => i !== index)
             }
         case "CLEAR_CART":
-            return state
+            return {
+                ...state,
+                cart: []
+            }
         default:
             return state
     }

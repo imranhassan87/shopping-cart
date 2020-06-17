@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import gsap from 'gsap'
+import gsap, { Power3 } from 'gsap'
 
 const Header = () => {
     useEffect(() => {
@@ -20,6 +20,13 @@ const Header = () => {
             stagger: {
                 amount: 0.3
             },
+        })
+        tl.from('.line', 1.3, {
+            opacity: 0,
+            y: 44,
+            ease: Power3.easeOut,
+            delay: 0.2,
+            stagger: 0.5
         })
     }, [])
     return (
