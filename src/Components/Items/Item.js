@@ -9,6 +9,7 @@ const Item = () => {
                 <img src={require(`../../images/${item.image}.jpg`)} alt="" />
                 <div className="card-info">
                     <h4>{item.name}</h4>
+                    <h5>Umer</h5>
                     <span>Rs. {item.price}</span>
                 </div>
                 <button className="btn" onClick={() => addToCart(item)}> Add to Cart</button>
